@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uber_clone/constants/app_sizes.dart';
 import 'package:uber_clone/views/pages/home/header_section.dart';
+import 'package:uber_clone/views/pages/home/map.dart';
+import 'package:uber_clone/views/widgets/circle_container.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -14,14 +16,59 @@ class HomePage extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20.0,
+                vertical: 15.0,
+              ),
               child: Column(
-                children: [_WhereToSearchBar()],
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _WhereToSearchBar(),
+                  SizedBox(height: 20),
+                  _selectSavedPlaces(),
+                  SizedBox(height: 30),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Around you',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 22,
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      SizedBox(
+                        height: Get.height * .20,
+                        child: Map(),
+                      ),
+                    ],
+                  )
+                ],
               ),
             ),
           ),
         ],
       ),
+    );
+  }
+
+  ListTile _selectSavedPlaces() {
+    return ListTile(
+      contentPadding: EdgeInsets.all(0),
+      leading: CircleContainer(
+        child: Icon(
+          Icons.star,
+          color: Colors.black,
+        ),
+      ),
+      title: Text(
+        'Choose a saved place',
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+      trailing: Icon(Icons.chevron_right),
     );
   }
 }

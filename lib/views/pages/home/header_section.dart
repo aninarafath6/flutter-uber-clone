@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:uber_clone/constants/app_colors.dart';
 import 'package:uber_clone/constants/app_images.dart';
@@ -49,6 +48,9 @@ class HeaderSection extends StatelessWidget {
                       "Stepping out? We'll help get you there and \nback again.",
                       style: TextStyle(
                         color: Colors.white,
+                        wordSpacing: 1,
+                        height: 1.4,
+                        letterSpacing: .6,
                       ),
                     ),
                     SizedBox(height: 15),
@@ -77,7 +79,7 @@ class HeaderSection extends StatelessWidget {
               right: -60,
               child: Image.asset(
                 AppImages.PIZZA_image,
-                width: 200,
+                width: 180,
               ),
             ),
           ],

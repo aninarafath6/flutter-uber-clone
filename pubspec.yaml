@@ -27,3 +27,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/map_style.txt
+    
