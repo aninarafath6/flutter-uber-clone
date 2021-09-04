@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:geolocator/geolocator.dart';
 import 'package:get/state_manager.dart';
@@ -8,8 +9,8 @@ import 'package:flutter/services.dart' show rootBundle;
 
 class HomeController extends GetxController {
   CameraPosition initialCameraPosition = CameraPosition(
-    target: LatLng(37.4220, -122.0840),
-    zoom: 10.0,
+    target: LatLng(11.0689135, 75.9361427),
+    zoom: 25.0,
   );
   Completer<GoogleMapController> controller = Completer();
   String? _mapStyle;
@@ -20,12 +21,13 @@ class HomeController extends GetxController {
       _mapStyle = string;
     });
     getLocation().then((Position position) async {
+      print(position);
       var _controller = await controller.future;
       _controller.animateCamera(
         CameraUpdate.newCameraPosition(
           CameraPosition(
             target: LatLng(position.latitude, position.longitude),
-            zoom: 15,
+            zoom: 18,
           ),
         ),
       );
@@ -37,5 +39,13 @@ class HomeController extends GetxController {
     this.controller.complete(controller);
     var _controller = await this.controller.future;
     _controller.setMapStyle(_mapStyle);
+    for (var interface in await NetworkInterface.list()) {
+      print('== Interface: ${interface.name} ==');
+      for (var addr in interface.addresses) {
+        print(
+            '${addr.address} ${addr.host} ${addr.isLoopback} ${addr.rawAddress} ${addr.type.name}');
+      }
+      // e.g. 113.139.104.65 or ""
+    }
   }
 }

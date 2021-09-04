@@ -20,7 +20,6 @@ class Map extends GetView<HomeController> {
       rotateGesturesEnabled: false,
       scrollGesturesEnabled: true,
       compassEnabled: false,
-
       // options: GoogleMapOptions(myLocationEnabled: true),
     );
   }
