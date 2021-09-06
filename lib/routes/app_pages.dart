@@ -1,5 +1,4 @@
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:uber_clone/bindings/home_page_binding.dart';
 import 'package:uber_clone/routes/app_routes.dart';
 import 'package:uber_clone/views/pages/home/home_page.dart';
 
@@ -9,7 +8,7 @@ class AppPages {
     GetPage(
       name: Routes.HOME,
       page: () => HomePage(),
-      binding: HomePageBinding(),
+      // binding: HomePageBinding(),
     ),
   ];
 }

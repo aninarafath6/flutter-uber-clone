@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:uber_clone/constants/app_sizes.dart';
 import 'package:uber_clone/views/pages/home/header_section.dart';
 import 'package:uber_clone/views/pages/home/map.dart';
+import 'package:uber_clone/views/pages/select_destinantion/select_destination_page.dart';
 import 'package:uber_clone/views/widgets/circle_container.dart';
 
 class HomePage extends StatelessWidget {
@@ -89,14 +90,23 @@ class _WhereToSearchBar extends StatelessWidget {
         alignment: Alignment.centerLeft,
         child: Row(
           children: [
-            Text(
-              'Where to?',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
+            Expanded(
+              child: InkWell(
+                enableFeedback: true,
+                onTap: () {
+                  Get.to(SelectDestination());
+                },
+                child: Container(
+                  child: Text(
+                    'Where to?',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
               ),
             ),
-            Spacer(),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: VerticalDivider(
