@@ -10,12 +10,21 @@ class SelectDestination extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: _buildAppBar(),
-        body: Stack(
-          children: [
-            DestinationMap(),
-          ],
-        ));
+      appBar: _buildAppBar(),
+      body: Stack(
+        children: [
+          DestinationMap(),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              color: Colors.white,
+              width: Get.width * .90,
+              height: 100,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   AppBar _buildAppBar() {

@@ -4,7 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:uber_clone/controllers/destination_controller.dart';
 
 class DestinationMap extends StatelessWidget {
-  final bool? reactive =true;
+  final bool? reactive = true;
 
   final DestinationController controller = Get.put(DestinationController());
 
@@ -16,7 +16,7 @@ class DestinationMap extends StatelessWidget {
       initialCameraPosition: controller.initialCameraPosition,
       myLocationEnabled: true,
       onMapCreated: controller.onMapCreated,
-      zoomControlsEnabled: reactive!,
+      zoomControlsEnabled: false,
       zoomGesturesEnabled: reactive!,
       myLocationButtonEnabled: false,
       rotateGesturesEnabled: reactive!,
